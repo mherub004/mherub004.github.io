@@ -3,253 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mherub Ahsan | IT System Administrator & Data Science Student</title>
+    <title>Mherub Ahsan | IT Infrastructure & Data Science</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
         :root {
-            --primary-color: #004b87;
-            --secondary-color: #0073e6;
-            --bg-color: #f8f9fa;
-            --text-color: #333333;
+            --primary: #0f172a;
+            --secondary: #3b82f6;
+            --bg-light: #f8fafc;
+            --text-main: #334155;
+            --text-muted: #64748b;
             --card-bg: #ffffff;
         }
-        
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.7;
+        }
+
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px;
         }
 
+        /* Hero Section */
         header {
+            padding: 100px 0 60px;
             text-align: center;
-            margin-bottom: 40px;
-            background: var(--card-bg);
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
-        h1 {
-            color: var(--primary-color);
-            margin: 0 0 10px 0;
-            font-size: 2.5em;
+        header h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            letter-spacing: -1px;
+            margin-bottom: 15px;
         }
 
-        .subtitle {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 20px;
+        header h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 30px;
         }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: var(--secondary-color);
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 25px;
+            background: var(--primary);
+            color: white;
             text-decoration: none;
-            font-weight: 500;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background 0.3s ease;
         }
 
-        .contact-links a:hover {
-            text-decoration: underline;
+        .social-links a.outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
+        .social-links a:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+
+        /* Section Layouts */
         section {
+            padding: 60px 0;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Grid for What I Do */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
             background: var(--card-bg);
             padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
         }
 
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid #e1e8ed;
-            padding-bottom: 10px;
-            margin-top: 0;
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        /* Resume Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .timeline-item {
-            margin-bottom: 25px;
+            padding: 20px 0;
+            border-bottom: 1px dashed #cbd5e1;
         }
 
         .timeline-item:last-child {
-            margin-bottom: 0;
+            border-bottom: none;
         }
 
-        .item-header {
+        .timeline-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 10px;
         }
 
-        .item-title {
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--secondary);
             font-weight: 600;
-            font-size: 1.1em;
-            color: #222;
         }
 
-        .item-meta {
-            color: #666;
-            font-size: 0.9em;
-            font-style: italic;
+        .timeline-company {
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: block;
         }
 
-        .skills-container {
+        ul.styled-list {
+            list-style-type: none;
+        }
+
+        ul.styled-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        ul.styled-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        /* Skills Tags */
+        .skills-wrapper {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
+            justify-content: center;
         }
 
-        .skill-tag {
-            background: #eef5ff;
-            color: var(--primary-color);
-            padding: 6px 14px;
+        .skill {
+            background: #e0f2fe;
+            color: #0284c7;
+            padding: 8px 16px;
             border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 500;
-            border: 1px solid #cce0ff;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        ul {
-            margin: 10px 0 0 0;
-            padding-left: 20px;
-        }
-
-        @media (max-width: 600px) {
-            .item-header {
-                flex-direction: column;
-            }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .timeline-header { flex-direction: column; align-items: flex-start; }
+            .timeline-date { margin-top: 5px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
+    <header>
+        <div class="container">
             <h1>Mherub Ahsan</h1>
-            <div class="subtitle">Data Science M.Sc. Student | IT System Administrator</div>
-            <div class="contact-links">
-                <a href="mailto:mherub.diu.cse@gmail.com">mherub.diu.cse@gmail.com</a>
+            <h2>IT Infrastructure Engineer & Data Science M.Sc. Student</h2>
+            <div class="social-links">
                 <a href="https://github.com/meharab004" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/mherub-ahsan-27967b117" target="_blank">LinkedIn</a>
-                <span>Erlangen, Germany</span>
+                <a href="mailto:mherub.diu.cse@gmail.com" class="outline">Email Me</a>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <section id="profile">
-            <h2>Profile</h2>
-            <p>Data Science M.Sc. student at Friedrich-Alexander-Universität with hands-on experience in IT system administration, Microsoft 365, Intune, Endpoint Management, Active Directory, Open Source Infrastructure, and Windows/Linux/MacOS environments. Passionate about automating workflows, containerization, and robust network configurations.</p>
-        </section>
+    <section id="about">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <p style="font-size: 1.1rem;">
+                I am a technical problem-solver based in the Erlangen/Nuremberg area, blending a strong foundation in Computer Science with ongoing master's research in Data Science at FAU. Professionally, I specialize in IT system administration, endpoint management, and keeping enterprise environments secure. Outside of work, I am deeply passionate about automating workflows, exploring cloud computing, and building robust networking solutions.
+            </p>
+        </div>
+    </section>
 
-        <section id="experience">
-            <h2>Work Experience</h2>
-            
-            <div class="timeline-item">
-                <div class="item-header">
-                    <span class="item-title">IT System Administrator (Working Student) | ABL GmbH</span>
-                    <span class="item-meta">Aug 2024 – Present | Lauf an der Pegnitz, Germany</span>
+    <section id="what-i-do">
+        <div class="container">
+            <h2 class="section-title">What I Do</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Enterprise IT & Systems Management</h3>
+                    <p>Managing complete IT lifecycles using Microsoft 365, Intune, and Active Directory. I ensure endpoint security, seamless MDM deployments, and rapid L1/L2 troubleshooting for both Windows and MacOS environments.</p>
                 </div>
-                <ul>
-                    <li>Manage endpoint security and compliance through Microsoft Intune and Baramundi.</li>
-                    <li>Administer Active Directory alongside Windows and Linux Server environments.</li>
-                    <li>Provide structured L1/L2 IT support and advanced troubleshooting.</li>
-                    <li>Track and resolve complex IT tickets utilizing the Jira ticketing system.</li>
-                </ul>
-            </div>
-
-            <div class="timeline-item">
-                <div class="item-header">
-                    <span class="item-title">Customer Service Representative | Genex Infosys</span>
-                    <span class="item-meta">Sep 2022 – Feb 2024 | Dhaka, Bangladesh</span>
+                <div class="card">
+                    <h3>Linux & Open-Source Infrastructure</h3>
+                    <p>Highly comfortable in the command-line interface. I actively manage and self-host open-source applications using Docker containers, managing network configurations and centralized home server infrastructures.</p>
                 </div>
-                <ul>
-                    <li>Provided direct customer support and issue resolution for Grameenphone Digital services and the MYGP application.</li>
-                </ul>
-            </div>
-
-            <div class="timeline-item">
-                <div class="item-header">
-                    <span class="item-title">IT Support Intern | JHK International</span>
-                    <span class="item-meta">Feb 2021 – Jan 2022 | Dhaka, Bangladesh</span>
+                <div class="card">
+                    <h3>Data Science & Edge AI</h3>
+                    <p>Applying machine learning algorithms to real-world datasets. From designing models in Python for plant disease prediction to actively experimenting with microcontrollers and Edge AI hardware like the NVIDIA Jetson Nano and Raspberry Pi.</p>
                 </div>
-                <ul>
-                    <li>Assisted with general technical support and foundational IT infrastructure maintenance.</li>
-                </ul>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="timeline-item">
-                <div class="item-header">
-                    <span class="item-title">M.Sc. in Data Science</span>
-                    <span class="item-meta">Apr 2024 – Present | Erlangen, Germany</span>
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">IT System Administrator (Working Student)</span>
+                        <span class="timeline-date">Aug 2024 – Present</span>
+                    </div>
+                    <span class="timeline-company">ABL GmbH | Lauf an der Pegnitz, Germany</span>
+                    <ul class="styled-list">
+                        <li>Administer Active Directory and maintain Windows/Linux Server environments to ensure high availability.</li>
+                        <li>Manage endpoint security and global compliance protocols using Microsoft Intune and Baramundi.</li>
+                        <li>Provide dedicated L1/L2 IT support, effectively prioritizing and resolving infrastructure tickets via Jira.</li>
+                    </ul>
                 </div>
-                <p style="margin-top: 5px;">Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)</p>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="item-header">
-                    <span class="item-title">B.Sc. in Computer Science and Engineering</span>
-                    <span class="item-meta">Jan 2016 – Feb 2020 | Dhaka, Bangladesh</span>
-                </div>
-                <p style="margin-top: 5px;">Daffodil International University (CGPA 3.18)</p>
-            </div>
-        </section>
 
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Microsoft 365 & Exchange</span>
-                <span class="skill-tag">Active Directory</span>
-                <span class="skill-tag">Windows Server & Linux OS</span>
-                <span class="skill-tag">MacOS</span>
-                <span class="skill-tag">Microsoft Intune & MDM</span>
-                <span class="skill-tag">Endpoint Management</span>
-                <span class="skill-tag">Baramundi</span>
-                <span class="skill-tag">VMware vSphere & Virtualization</span>
-                <span class="skill-tag">Containerization & Open Source</span>
-                <span class="skill-tag">Networking & ClearPass</span>
-                <span class="skill-tag">Python & Data Visualization</span>
-                <span class="skill-tag">Power BI</span>
-                <span class="skill-tag">Git & GitHub</span>
-                <span class="skill-tag">Jira</span>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Projects & Organizations</h2>
-            <div class="timeline-item">
-                <div class="item-header">
-                    <span class="item-title">Plant Disease Prediction Model</span>
-                    <span class="item-meta">Aug 2019 – Jan 2020</span>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">Customer Service Representative</span>
+                        <span class="timeline-date">Sep 2022 – Feb 2024</span>
+                    </div>
+                    <span class="timeline-company">Genex Infosys | Dhaka, Bangladesh</span>
+                    <ul class="styled-list">
+                        <li>Delivered high-volume technical and account support for Grameenphone Digital services and the MYGP application.</li>
+                    </ul>
                 </div>
-                <p style="margin-top: 5px;">Designed and implemented a machine learning model capable of predicting and classifying various plant diseases to aid in agricultural automation.</p>
-            </div>
 
-            <div class="timeline-item">
-                <div class="item-header">
-                    <span class="item-title">Organization of Innovation Patriot (OIP)</span>
-                    <span class="item-meta">May 2016 – Apr 2019 | Dhaka, Bangladesh</span>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">IT Support Intern</span>
+                        <span class="timeline-date">Feb 2021 – Jan 2022</span>
+                    </div>
+                    <span class="timeline-company">JHK International | Dhaka, Bangladesh</span>
+                    <ul class="styled-list">
+                        <li>Supported core IT operations, hardware troubleshooting, and internal network maintenance.</li>
+                    </ul>
                 </div>
-                <p style="margin-top: 5px;">Served as the Assistant Secretary of Educational Affairs, organizing initiatives and collaborative events.</p>
+
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">M.Sc. in Data Science</span>
+                        <span class="timeline-date">Apr 2024 – Present</span>
+                    </div>
+                    <span class="timeline-company">Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) | Germany</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="timeline-title">B.Sc. in Computer Science and Engineering</span>
+                        <span class="timeline-date">Jan 2016 – Feb 2020</span>
+                    </div>
+                    <span class="timeline-company">Daffodil International University | Dhaka, Bangladesh</span>
+                    <p>CGPA: 3.18</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="skills-wrapper">
+                <span class="skill">Linux / Unix</span>
+                <span class="skill">Windows Server</span>
+                <span class="skill">Docker & Containerization</span>
+                <span class="skill">Active Directory (AD)</span>
+                <span class="skill">Microsoft Intune / MDM</span>
+                <span class="skill">Microsoft 365 & Exchange</span>
+                <span class="skill">Python</span>
+                <span class="skill">Networking & ClearPass</span>
+                <span class="skill">VMware vSphere</span>
+                <span class="skill">Jira</span>
+                <span class="skill">Power BI</span>
+                <span class="skill">Git / GitHub</span>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.9rem;">
+        <p>&copy; 2026 Mherub Ahsan. Built for the web.</p>
+    </footer>
 
 </body>
 </html>
